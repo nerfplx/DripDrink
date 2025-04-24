@@ -1,20 +1,18 @@
-//
-//  DripDrinkApp.swift
-//  DripDrink
-//
-//  Created by Alexandr on 24.04.25.
-//
-
 import SwiftUI
+import MapKit
+import CoreLocation
+import CoreData
 
 @main
 struct DripDrinkApp: App {
     let persistenceController = PersistenceController.shared
-
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            NavigationStack {
+                SplashScreenView()
+                    .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            }
         }
     }
 }
