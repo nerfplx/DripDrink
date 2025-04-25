@@ -4,7 +4,7 @@ import CoreLocation
 
 struct LocationSelectionView: View {
     @Environment(\.managedObjectContext) private var viewContext
-    @State private var selectedPlace: CoffeePlace?
+    @State private var selectedPlace: CoffeePlaceModel?
     @State private var cameraPosition: MapCameraPosition = .region(
         MKCoordinateRegion(
             center: CLLocationCoordinate2D(latitude: 55.751244, longitude: 37.618423),
@@ -13,11 +13,11 @@ struct LocationSelectionView: View {
     )
     @StateObject private var locationManager = LocationManager()
 
-    let coffeePlaces: [CoffeePlace] = [
-        CoffeePlace(name: "Кофейня на Арбате", coordinate: CLLocationCoordinate2D(latitude: 55.7522200, longitude: 37.6155600), city: "Москва"),
-        CoffeePlace(name: "Кофе в центре", coordinate: CLLocationCoordinate2D(latitude: 59.9342802, longitude: 30.3350986), city: "Санкт-Петербург"),
-        CoffeePlace(name: "Кофе и точка", coordinate: CLLocationCoordinate2D(latitude: 56.8389261, longitude: 60.6057025), city: "Екатеринбург"),
-        CoffeePlace(name: "Чашка счастья", coordinate: CLLocationCoordinate2D(latitude: 43.1056200, longitude: 131.8735300), city: "Владивосток")
+    let coffeePlaces: [CoffeePlaceModel] = [
+        CoffeePlaceModel(name: "Кофейня на Арбате", coordinate: CLLocationCoordinate2D(latitude: 55.7522200, longitude: 37.6155600), city: "Москва"),
+        CoffeePlaceModel(name: "Кофе в центре", coordinate: CLLocationCoordinate2D(latitude: 59.9342802, longitude: 30.3350986), city: "Санкт-Петербург"),
+        CoffeePlaceModel(name: "Кофе и точка", coordinate: CLLocationCoordinate2D(latitude: 56.8389261, longitude: 60.6057025), city: "Екатеринбург"),
+        CoffeePlaceModel(name: "Чашка счастья", coordinate: CLLocationCoordinate2D(latitude: 43.1056200, longitude: 131.8735300), city: "Владивосток")
     ]
 
     @State private var goToMenu = false
@@ -99,7 +99,7 @@ struct LocationSelectionView: View {
                 .padding()
             }
             .navigationDestination(isPresented: $goToMenu) {
-                CoffeeMenuView()
+                MainPageView()
             }
         }
     }

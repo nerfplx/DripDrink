@@ -1,7 +1,7 @@
 import Foundation
 import CoreLocation
 
-struct CoffeePlace: Identifiable {
+struct CoffeePlaceModel: Identifiable {
     let id = UUID()
     let name: String
     let coordinate: CLLocationCoordinate2D
